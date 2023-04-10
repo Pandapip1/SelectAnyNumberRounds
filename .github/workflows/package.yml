@@ -1,0 +1,19 @@
+# Automatically generates an artifact, which is a zip file containing the icon.png, the manifest.json, the LICENSE.md, and the README.md files. The artifact is uploaded to the GitHub Actions artifacts page.
+name: Generate Package
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+          - name: Generate Package
+            run: zip -r package.zip icon.png manifest.json LICENSE.md README.md
+          - name: Upload Artifact
+            uses: actions/upload-artifact@v2
+            with:
+                name: package
+                path: package.zip
