@@ -1,0 +1,10 @@
+{
+    "name": "Select Any Number",
+    "version_number": "1.0.0-alpha.0",
+    "website_url": "https://pandapip1.com/",
+    "description": "Allows you to select any number of cards.",
+    "dependencies": [
+        "BepInEx-BepInExPack_ROUNDS-5.4.1900",
+        "willis81808-UnboundLib-3.2.10"
+    ]
+}
