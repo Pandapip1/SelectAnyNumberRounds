@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using SoundImplementation;
+using Photon.Pun;
 
 namespace SelectAnyNumberRounds.Patch
 {
@@ -12,6 +13,7 @@ namespace SelectAnyNumberRounds.Patch
         // Note: this only is run when the continue card is NOT picked.
         public static IEnumerator IDoEndPickPatched(GameObject pickedCard, int theInt, int pickId, CardChoice __instance, float ___speed, List<GameObject> ___spawnedCards)
         {
+            Plugin.Logger.LogDebug("IDoEndPickPatched called");
             Vector3 startPos = pickedCard.transform.position;
             Vector3 endPos = CardChoiceVisuals.instance.transform.position;
             float c = 0f;
@@ -58,13 +60,42 @@ namespace SelectAnyNumberRounds.Patch
             }
             SoundPlayerStatic.Instance.PlayPlayerBallDisappear();
             theIntTransform.position = startPos;
-            ___spawnedCards.Clear();
+
+            // Now, remove the card from the list of cards.
+            ___spawnedCards.RemoveAt(theInt);
+
+            // Do NOT clear the list of cards. We need it to be able to pick the cards again.
+            //___spawnedCards.Clear(); 
+            
             // Not needed since we're not using the continue card.
             //if (PlayerManager.instance.GetPlayerWithID(pickId).data.view.IsMine)
             //{
             //    base.StartCoroutine(this.ReplaceCards(pickedCard, false));
             //}
             pickedCard.GetComponentInChildren<CardVisuals>().Pick(); // The only important line from the original method.
+
+            // And now that we're done, some housekeeping
+
+            // Reset the currently selected card to the first card
+            typeof(CardChoice).GetField("currentlySelectedCard", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(__instance, 0);
+            ___spawnedCards[0].GetComponentInChildren<CardVisuals>().ChangeSelected(true);
+            ___spawnedCards[0].GetComponent<PhotonView>().RPC("RPCA_ChangeSelected", RpcTarget.All, new object[]
+            {
+				true
+            });
+            for (int j = 1; j < ___spawnedCards.Count; j++)
+            {
+                ___spawnedCards[j].GetComponentInChildren<CardVisuals>().ChangeSelected(false);
+                ___spawnedCards[j].GetComponent<PhotonView>().RPC("RPCA_ChangeSelected", RpcTarget.All, new object[]
+                {
+                    false
+                });
+            }
+            CardChoiceVisuals.instance.GetComponent<PhotonView>().RPC("RPCA_SetCurrentSelected", RpcTarget.All, new object[]
+            {
+                0
+            });
+
             yield break;
         }
 
