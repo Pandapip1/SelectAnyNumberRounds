@@ -9,11 +9,11 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v2
+          - uses: actions/checkout@v3
           - name: Generate Package
             run: zip -r package.zip icon.png manifest.json LICENSE.md README.md
           - name: Upload Artifact
-            uses: actions/upload-artifact@v2
+            uses: actions/upload-artifact@v3
             with:
                 name: package
                 path: package.zip
