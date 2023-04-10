@@ -36,12 +36,16 @@ namespace SelectAnyNumberRounds.Cards
         {
             // Remove card from hand
             var continueIndex = character.currentCards.FindIndex(c => c.cardName == "Continue");
+            if (continueIndex == -1)
+            {
+                return;
+            }
             character.currentCards.RemoveAt(continueIndex);
         }
 
         public override string GetModName()
         {
-            return "SelectAnyNumber";
+            return "SAN";
         }
 
         protected override GameObject GetCardArt()
