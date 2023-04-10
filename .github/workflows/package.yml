@@ -20,10 +20,10 @@ jobs:
                 dotnet-version: 7.0.104
           - name: Build Dotnet
             run: dotnet build --configuration Release
-          - name: Copy File to BepInEx Folder
+          - name: Copy File to Mod Folder
             run: |
-                mkdir -p BepInEx/plugins
-                cp -r bin/Release/netstandard2.0/PickAnyNumber.dll BepInEx/plugins
+                mkdir -p SelectAnyNumber/BepInEx/plugins
+                cp -r bin/Release/netstandard2.0/PickAnyNumber.dll SelectAnyNumber/BepInEx/plugins
           - name: Upload Artifact
             uses: actions/upload-artifact@v3
             with:
@@ -33,4 +33,4 @@ jobs:
                     manifest.json
                     LICENSE.md
                     README.md
-                    BepInEx
+                    SelectAnyNumber
