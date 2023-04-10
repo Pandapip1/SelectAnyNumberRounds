@@ -1,5 +1,6 @@
 using HarmonyLib;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace SelectAnyNumberRounds.Patch
@@ -7,14 +8,19 @@ namespace SelectAnyNumberRounds.Patch
     [HarmonyPatch(typeof(CardChoice), "ReplaceCards")]
     public static class DontRefreshCards
     {
-        public static bool Prefix(GameObject pickedCard, bool clear, ref IEnumerator<YieldInstruction> __result)
+        public static bool Prefix(GameObject pickedCard, bool clear, ref IEnumerator __result)
         {
             if (!pickedCard || pickedCard.name.Contains("Continue"))
             {
                 return true;
             }
-            __result = new List<YieldInstruction>().GetEnumerator(); // Return an empty IEnumerator coroutine
+            __result = GetEnumerator();
             return false;
+        }
+        
+        internal static IEnumerator GetEnumerator()
+        {
+            yield return null;
         }
     }
 }
