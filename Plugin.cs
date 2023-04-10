@@ -32,7 +32,7 @@ namespace SelectAnyNumberRounds
 
         internal ManualLogSource GetLogger()
         {
-            return Logger;
+            return base.Logger;
         }
     }
 }
