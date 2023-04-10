@@ -4,31 +4,26 @@ using System.Collections.Generic;
 
 namespace SelectAnyNumberRounds.Patch
 {
-    [HarmonyPatch(typeof(CardChoice), "ReplaceCards")]
+    [HarmonyPatch(typeof(CardChoice), nameof(CardChoice.IDoEndPick))]
     public static class RespawnCardChoice
     {
-        public static bool Prefix(ref CardChoice __instance, GameObject pickedCard, ref bool clear, ref List<GameObject> ___spawnedCards, ref int ___currentlySelectedCard)
+        public static bool Prefix(GameObject pickedCard, ref List<GameObject> __state, ref CardChoice __instance, ref List<GameObject> ___spawnedCards, ref int ___currentlySelectedCard)
         {
             // If the player picked no card, return true to allow the original method to run
             if (!pickedCard)
             {
-                Debug.Log("No card picked");
+                __state = null;
                 return true;
             }
-
-            // Debug log
-            Debug.Log("Picked card: " + pickedCard.name);
 
             // If the player picked the continue card, clear the list of cards as usual
             if (pickedCard.name.Contains("Continue"))
             {
-                Debug.Log("Picked continue card");
-                clear = true;
+                __state = null;
                 return true;
             }
 
             // Otherwise, partially replace the original method
-            Debug.Log("Picked a normal card");
 
             // Display the card as picked
             pickedCard.GetComponentInChildren<CardVisuals>().Pick();
@@ -42,11 +37,29 @@ namespace SelectAnyNumberRounds.Patch
                 ___spawnedCards[i].GetComponentInChildren<PublicInt>().theInt = i;
             }
 
+            // Set the state to the list of spawned cards
+            __state = ___spawnedCards;
+
+            // Set the list of spawned cards to the list containing only the picked card
+            ___spawnedCards = new List<GameObject>() { pickedCard };
+
             // Update the currently selected card
             ___currentlySelectedCard = 0;
 
-            // Skip the rest of the method
-            return false;
+            // The original method will now run, but it will only pick the card that was picked, and won't destroy the other cards
+            return true;
+        }
+
+        public static void Postfix(ref List<GameObject> __state, ref List<GameObject> ___spawnedCards)
+        {
+            // If the state is null or empty, return
+            if (__state == null || __state.Count == 0)
+            {
+                return;
+            }
+
+            // Otherwise, restore the list of spawned cards
+            ___spawnedCards = __state;
         }
     }
 }
