@@ -12,17 +12,23 @@ namespace SelectAnyNumberRounds.Patch
             // If the player picked no card, return true to allow the original method to run
             if (!pickedCard)
             {
+                Debug.Log("No card picked");
                 return true;
             }
 
+            // Debug log
+            Debug.Log("Picked card: " + pickedCard.name);
+
             // If the player picked the continue card, clear the list of cards as usual
-            if (pickedCard.name.Contains("__SelectAnyNumberRounds__Continue"))
+            if (pickedCard.name.Contains("Continue"))
             {
+                Debug.Log("Picked continue card");
                 clear = true;
                 return true;
             }
 
             // Otherwise, partially replace the original method
+            Debug.Log("Picked a normal card");
 
             // Display the card as picked
             pickedCard.GetComponentInChildren<CardVisuals>().Pick();
