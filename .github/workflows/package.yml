@@ -1,9 +1,12 @@
 # Automatically generates an artifact, which is a zip file containing the icon.png, the manifest.json, the LICENSE.md, and the README.md files. The artifact is uploaded to the GitHub Actions artifacts page.
 name: Generate Package
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+          - main
+    pull_request:
+        branches:
+          - main
 
 jobs:
     build:
