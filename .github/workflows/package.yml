@@ -9,7 +9,18 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v3
+          - name: Checkout
+            uses: actions/checkout@v3
+          - name: Setup .NET Core SDK
+            uses: actions/setup-dotnet@v3
+            with:
+                dotnet-version: 7.0.104
+          - name: Build Dotnet
+            run: dotnet build --configuration Release
+          - name: Copy File to BepInEx Folder
+            run: |
+                mkdir -p BepInEx/plugins
+                cp -r bin/Release/netstandard2.0/PickAnyNumber.dll BepInEx/plugins
           - name: Upload Artifact
             uses: actions/upload-artifact@v3
             with:
@@ -19,3 +30,4 @@ jobs:
                     manifest.json
                     LICENSE.md
                     README.md
+                    BepInEx
