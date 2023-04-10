@@ -5,6 +5,8 @@ namespace SelectAnyNumberRounds.Cards
 {
     public class ContinueCard : CustomCard
     {
+        public static CardInfo cardInfoInstance = null;
+
         protected override string GetTitle()
         {
             return "Continue";
@@ -39,12 +41,17 @@ namespace SelectAnyNumberRounds.Cards
 
         public override string GetModName()
         {
-            return "Select Any Number";
+            return "SelectAnyNumber";
         }
 
         protected override GameObject GetCardArt()
         {
             return null;
+        }
+
+        public override bool GetEnabled()
+        {
+            return false; // Do not show this card in the card selection menu, and do not allow it to be added to the player's hand by normal means
         }
     }
 }

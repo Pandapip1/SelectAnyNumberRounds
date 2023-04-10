@@ -7,55 +7,39 @@ namespace SelectAnyNumberRounds.Patch
     [HarmonyPatch(typeof(CardChoice), "ReplaceCards")]
     public static class RespawnCardChoice
     {
-        public static bool Prefix(ref CardChoice __instance, GameObject pickedCard, ref bool clear)
+        public static bool Prefix(ref CardChoice __instance, GameObject pickedCard, ref bool clear, ref List<GameObject> ___spawnedCards, ref int ___currentlySelectedCard)
         {
-            // Ensure the player has picked a card
+            // If the player picked no card, return true to allow the original method to run
             if (!pickedCard)
             {
                 return true;
             }
 
-            // Get reflection info for the cards list
-            // Using reflection to access private fields
-            var spawnedCards = (List<GameObject>) typeof(CardChoice).GetField("spawnedCards", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(__instance);
-            var cards = (CardInfo[]) typeof(CardChoice).GetField("cards", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(__instance);
-
-            // Fetch continue card info
-            CardInfo cardInfo = null;
-            foreach (CardInfo card in cards)
-            {
-                if (card.cardName == "Continue")
-                {
-                    cardInfo = card;
-                    break;
-                }
-            }
-
             // If the player picked the continue card, clear the list of cards as usual
-            if (pickedCard.GetComponent<CardInfo>().sourceCard == cardInfo)
+            if (pickedCard.name.Contains("__SelectAnyNumberRounds__Continue"))
             {
                 clear = true;
                 return true;
             }
 
-            // Otherwise, we have to partially replicate the original method
-            
-            // Play card pick animation
+            // Otherwise, partially replace the original method
+
+            // Display the card as picked
             pickedCard.GetComponentInChildren<CardVisuals>().Pick();
 
-            // Remove the card from the list of cards spawned
-            spawnedCards.Remove(pickedCard);
+            // Remove the card from the list of spawned cards
+            ___spawnedCards.Remove(pickedCard);
 
-            // Update the other cards
-            for (int i = 0; i < spawnedCards.Count; i++)
+            // Update the ints
+            for (int i = 0; i < ___spawnedCards.Count; i++)
             {
-                spawnedCards[i].GetComponent<PublicInt>().theInt = i;
+                ___spawnedCards[i].GetComponentInChildren<PublicInt>().theInt = i;
             }
 
-            // Reflection to put the spawnedCards list back into the CardChoice instance
-            typeof(CardChoice).GetField("spawnedCards", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(__instance, spawnedCards);
+            // Update the currently selected card
+            ___currentlySelectedCard = 0;
 
-            // And now we can return false to prevent the original method from running
+            // Skip the rest of the method
             return false;
         }
     }

@@ -21,23 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="ROUNDS">
-      <HintPath>deps\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon">
-      <HintPath>deps\Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="PhotonNetworking">
-      <HintPath>deps\PhotonUnityNetworking.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="UnboundLib">
-      <HintPath>deps\UnboundLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ConfigurationManager">
-      <HintPath>deps\ConfigurationManager.dll</HintPath>
-    </Reference>
+    <!-- include all assemblies in deps folder -->
+    <Reference Include="deps/*"/>
   </ItemGroup>
 </Project>
