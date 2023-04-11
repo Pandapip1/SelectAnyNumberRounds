@@ -1,6 +1,6 @@
 # Pick Any Number: A Rounds Mod by Pandapip1
 
-WARNING: Untested alpha. Use at your own risk. There will be bugs. When you find them, please report them on the [issues page](https://github.com/Pandapip1/SelectAnyNumberRounds/issues).
+WARNING: This mod is in beta. There will be bugs. When you find them, please report them on the [issues page](https://github.com/Pandapip1/SelectAnyNumberRounds/issues).
 
 This is a mod for the game [ROUNDS](https://store.steampowered.com/app/1557740/ROUNDS/), made by [Pandapip1](https://github.com/Pandapip1). It overrides the default card selection screen, allowing you to pick any number of cards you want, instead of just one.
 
