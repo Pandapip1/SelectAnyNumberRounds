@@ -77,7 +77,19 @@ namespace SelectAnyNumberRounds.Patch
                 }
             }
             Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 3");
+
+            // Remove all null entries from the list
             ___spawnedCards.RemoveAll((GameObject x) => x == null);
+
+            // Call DoPlayerSelect to select a new card
+            typeof(CardChoice).GetMethod("DoPlayerSelect", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, new object[] { });
+
+            // Ensure IsPicking is set to true
+            __instance.IsPicking = true;
+
+            // Ensure that pickrID is set to the correct value
+            __instance.pickrID = pickId;
+
             yield break;
         }
 
