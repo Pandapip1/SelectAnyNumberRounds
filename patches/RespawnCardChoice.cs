@@ -26,12 +26,6 @@ namespace SelectAnyNumberRounds.Patch
                 {
                     childrenPos[i] = __instance.transform.GetChild(i).position;
                 }
-            } else if (restoreChildrenPos)
-            {
-                for (int i = 0; i < __instance.transform.childCount; i++)
-                {
-                    __instance.transform.GetChild(i).position = childrenPos[i];
-                }
             }
 
             Vector3 startPos = pickedCard.transform.position;
