@@ -11,19 +11,15 @@ on:
 jobs:
     checkversionmismatch:
         runs-on: ubuntu-latest
-        name: Validate Unified Version
+        name: Ensure Version Parameters Match
         steps:
           - name: Checkout
             uses: actions/checkout@v3
           - name: Read manifest.json
             id: manifest
-            uses: juliangruber/read-file-action@v1
+            uses: ActionsTools/read-json-action@v1.0.5
             with:
-                path: manifest.json
-          - name: Extract version from manifest.json
-            id: version
-            run: |
-                echo "version=${{ fromJSON(steps.manifest.outputs.content).version }}" > $GITHUB_OUTPUT
+                file_path: manifest.json
           - name: Read SelectAnyNumber.csproj Version
             id: csproj
             uses: mavrosxristoforos/get-xml-info@1.1.1
@@ -32,7 +28,7 @@ jobs:
                 xpath: /Project/PropertyGroup/Version
           - name: Validate version
             run: |
-                if [ "${{ steps.version.outputs.version }}" != "${{ steps.csproj.outputs.value }}" ]; then
+                if [ "${{ steps.manifest.outputs.version }}" != "${{ steps.csproj.outputs.info }}" ]; then
                     echo "Version mismatch between manifest.json and SelectAnyNumber.csproj"
                     exit 1
                 fi
