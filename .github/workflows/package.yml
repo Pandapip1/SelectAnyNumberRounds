@@ -23,7 +23,7 @@ jobs:
           - name: Extract version from manifest.json
             id: version
             run: |
-                echo "::set-output name=version::${{ fromJSON(steps.manifest.outputs.content).version }}"
+                echo "version=${{ fromJSON(steps.manifest.outputs.content).version }}" > $GITHUB_OUTPUT
           - name: Read SelectAnyNumber.csproj Version
             id: csproj
             uses: mavrosxristoforos/get-xml-info@1.1.1
