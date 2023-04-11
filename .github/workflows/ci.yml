@@ -71,7 +71,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         outputs:
             release_needed: ${{ steps.check.outputs.release }}
-            version: ${{ env.version }}
+            version: ${{ steps.check.outputs.version }}
         steps:
           - name: Checkout
             uses: actions/checkout@v3
@@ -96,11 +96,11 @@ jobs:
                 if [ "${{ steps.latest_tag.outputs.tag }}" == "${{ steps.manifest.outputs.value }}" ]; then
                     echo "Release not needed"
                     echo "release=false" >> $GITHUB_OUTPUT
-                    echo "version=${{ steps.latest_tag.outputs.tag }}" >> $GITHUB_ENV
+                    echo "version=${{ steps.latest_tag.outputs.tag }}" >> $GITHUB_OUTPUT
                 else
                     echo "Release needed"
                     echo "release=true" >> $GITHUB_OUTPUT
-                    echo "version=${{ steps.manifest.outputs.value }}" >> $GITHUB_ENV
+                    echo "version=${{ steps.manifest.outputs.value }}" >> $GITHUB_OUTPUT
                 fi
     publish:
         name: Publish and Release
