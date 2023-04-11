@@ -71,6 +71,7 @@ namespace SelectAnyNumberRounds.Patch
                         ___spawnedCards[i].GetComponent<PublicInt>().theInt = i;
                     } else
                     {
+                        Plugin.Logger.LogWarning($"Object {___spawnedCards[i].name} does not have a PublicInt component. Adding one now.");
                         ___spawnedCards[i].AddComponent<PublicInt>().theInt = i;
                     }
                 }
