@@ -28,7 +28,7 @@ jobs:
             id: csproj
             uses: mavrosxristoforos/get-xml-info@1.1.1
             with:
-                xml-file: SelectAnyNumber.csproj
+                xml-file: SelectAnyNumberRounds.csproj
                 xpath: /Project/PropertyGroup/Version
           - name: Validate version
             run: |
