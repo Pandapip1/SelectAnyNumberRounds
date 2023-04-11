@@ -2,6 +2,7 @@ using HarmonyLib;
 using UnityEngine;
 using Photon.Pun;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace SelectAnyNumberRounds.Patch
 {
@@ -11,6 +12,7 @@ namespace SelectAnyNumberRounds.Patch
         public static bool Prefix(ref CardChoice __instance, GameObject pickedCard, bool clear, ref PickerType ___pickerType, ref List<GameObject> ___spawnedCards)
         {
             // Override the original method with our own
+            var playerID = __instance.pickrID;
             if (pickedCard)
             {
                 int[] cardIds = new int[___spawnedCards.Count];
@@ -26,6 +28,9 @@ namespace SelectAnyNumberRounds.Patch
                     pickedCard.GetComponent<PublicInt>().theInt,
                     __instance.pickrID
                 });
+            } else if (PlayerManager.instance.players.Find((Player p) => p.playerID == playerID).data.view.IsMine)
+            {
+                return true; // Let the original method handle this, since we need to actually spawn in cards in the first place
             }
             return false;
         }
