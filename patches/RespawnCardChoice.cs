@@ -81,9 +81,6 @@ namespace SelectAnyNumberRounds.Patch
             // Remove all null entries from the list
             ___spawnedCards.RemoveAll((GameObject x) => x == null);
 
-            // Call DoPlayerSelect to select a new card
-            typeof(CardChoice).GetMethod("DoPlayerSelect", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, new object[] { });
-
             // Ensure IsPicking is set to true
             __instance.IsPicking = true;
 
