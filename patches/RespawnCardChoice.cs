@@ -27,6 +27,7 @@ namespace SelectAnyNumberRounds.Patch
                 yield return null;
             }
             GamefeelManager.GameFeel((startPos - endPos).normalized * 2f);
+            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 0");
             for (int i = 0; i < ___spawnedCards.Count; i++)
             {
                 if (___spawnedCards[i])
@@ -37,6 +38,7 @@ namespace SelectAnyNumberRounds.Patch
                     }
                 }
             }
+            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 1");
             yield return new WaitForSeconds(0.25f);
             AnimationCurve softCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
             Vector3 startPos2 = __instance.transform.GetChild(theInt).transform.position;
@@ -49,6 +51,7 @@ namespace SelectAnyNumberRounds.Patch
                 c += Time.deltaTime * ___speed * 1.5f;
                 yield return null;
             }
+            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 2");
             SoundPlayerStatic.Instance.PlayPlayerBallDisappear();
             __instance.transform.GetChild(theInt).position = startPos;
             for (int i = 0; i < ___spawnedCards.Count; i++)
@@ -61,6 +64,7 @@ namespace SelectAnyNumberRounds.Patch
                     ___spawnedCards[i].GetComponent<PublicInt>().theInt = i;
                 }
             }
+            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 3");
             ___spawnedCards.RemoveAll((GameObject x) => x == null);
             yield break;
         }
