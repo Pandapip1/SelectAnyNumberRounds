@@ -57,8 +57,10 @@ namespace SelectAnyNumberRounds.Patch
             {
                 __instance.transform.GetChild(theInt).position = startPos;
             }
+            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 2.1");
             for (int i = 0; i < ___spawnedCards.Count; i++)
             {
+                Plugin.Logger.LogDebug($"IDoEndPickPatched: Reached checkpoint 2.2: {i}");
                 if (___spawnedCards[i] == pickedCard)
                 {
                     ___spawnedCards[i] = null;
