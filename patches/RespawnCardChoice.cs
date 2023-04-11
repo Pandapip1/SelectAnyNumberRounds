@@ -53,7 +53,10 @@ namespace SelectAnyNumberRounds.Patch
             }
             Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 2");
             SoundPlayerStatic.Instance.PlayPlayerBallDisappear();
-            __instance.transform.GetChild(theInt).position = startPos;
+            if (theInt >= 0 && theInt < __instance.transform.childCount && __instance.transform.GetChild(theInt))
+            {
+                __instance.transform.GetChild(theInt).position = startPos;
+            }
             for (int i = 0; i < ___spawnedCards.Count; i++)
             {
                 if (___spawnedCards[i] == pickedCard)
@@ -61,7 +64,13 @@ namespace SelectAnyNumberRounds.Patch
                     ___spawnedCards[i] = null;
                 } else if (___spawnedCards[i])
                 {
-                    ___spawnedCards[i].GetComponent<PublicInt>().theInt = i;
+                    if (___spawnedCards[i].GetComponent<PublicInt>())
+                    {
+                        ___spawnedCards[i].GetComponent<PublicInt>().theInt = i;
+                    } else
+                    {
+                        ___spawnedCards[i].AddComponent<PublicInt>().theInt = i;
+                    }
                 }
             }
             Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 3");
