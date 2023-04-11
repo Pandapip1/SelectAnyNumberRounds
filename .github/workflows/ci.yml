@@ -106,13 +106,10 @@ jobs:
         needs: [checkversionmismatch, build, checkrelease]
         if: needs.checkrelease.outputs.release_needed == 'true'
         steps:
-          - name: Checkout
-            uses: actions/checkout@v3
           - name: Download Artifact
             uses: actions/download-artifact@v3
             with:
                 name: package
-                path: package
           - name: Publish to Thunderstore
             uses: GreenTF/upload-thunderstore-package@v3.1
             with:
@@ -121,7 +118,7 @@ jobs:
                 namespace: Pandapip1
                 name: SelectAnyNumber
                 version: ${{ needs.checkrelease.outputs.version }}
-                path: package
+                path: .
           - name: Create Release
             uses: actions/create-release@v1
             env:
