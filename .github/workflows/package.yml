@@ -9,6 +9,33 @@ on:
           - main
 
 jobs:
+    checkversionmismatch:
+        runs-on: ubuntu-latest
+        name: Validate Unified Version
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v3
+          - name: Read manifest.json
+            id: manifest
+            uses: juliangruber/read-file-action@v1
+            with:
+                path: manifest.json
+          - name: Extract version from manifest.json
+            id: version
+            run: |
+                echo "::set-output name=version::${{ fromJSON(steps.manifest.outputs.content).version }}"
+          - name: Read SelectAnyNumber.csproj Version
+            id: csproj
+            uses: mavrosxristoforos/get-xml-info@1.1.1
+            with:
+                xml-file: SelectAnyNumber.csproj
+                xpath: /Project/PropertyGroup/Version
+          - name: Validate version
+            run: |
+                if [ "${{ steps.version.outputs.version }}" != "${{ steps.csproj.outputs.value }}" ]; then
+                    echo "Version mismatch between manifest.json and SelectAnyNumber.csproj"
+                    exit 1
+                fi
     build:
         runs-on: ubuntu-latest
         steps:
