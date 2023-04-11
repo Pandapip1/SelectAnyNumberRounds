@@ -63,3 +63,72 @@ jobs:
                     LICENSE.md
                     README.md
                     SelectAnyNumber
+    checkrelease:
+        name: Determine if Release is Needed
+        runs-on: ubuntu-latest
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        outputs:
+            release_needed: ${{ steps.check.outputs.release }}
+            version: ${{ env.version }}
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v3
+          - name: Read manifest.json
+            id: manifest
+            uses: ActionsTools/read-json-action@v1.0.5
+            with:
+                file_path: manifest.json
+                prop_path: version_number
+          - name: Get Latest Tag
+            id: latest_tag
+            uses: actions-ecosystem/action-get-latest-tag@v1
+            with:
+                semver_only: true
+                initial_version: 1.0.0
+                with_initial_version: true
+          - name: Output Whether a Release is Needed
+            id: check
+            run: |
+                echo "Latest Tag: ${{ steps.latest_tag.outputs.tag }}"
+                echo "Manifest Version: ${{ steps.manifest.outputs.value }}"
+                if [ "${{ steps.latest_tag.outputs.tag }}" == "${{ steps.manifest.outputs.value }}" ]; then
+                    echo "Release not needed"
+                    echo "release=false" >> $GITHUB_OUTPUT
+                    echo "version=${{ steps.latest_tag.outputs.tag }}" >> $GITHUB_ENV
+                else
+                    echo "Release needed"
+                    echo "release=true" >> $GITHUB_OUTPUT
+                    echo "version=${{ steps.manifest.outputs.value }}" >> $GITHUB_ENV
+                fi
+    publish:
+        name: Publish and Release
+        runs-on: ubuntu-latest
+        needs: [checkversionmismatch, build, checkrelease]
+        if: needs.checkrelease.outputs.release_needed == 'true'
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v3
+          - name: Download Artifact
+            uses: actions/download-artifact@v3
+            with:
+                name: package
+          - name: Publish to Thunderstore
+            uses: GreenTF/upload-thunderstore-package@v3.1
+            with:
+                token: ${{ secrets.THUNDERSTORE_TOKEN }}
+                community: ROUNDS
+                namespace: Pandapip1
+                name: SelectAnyNumber
+                version: ${{ needs.checkrelease.outputs.version }}
+                file: package.zip
+          - name: Create Release
+            uses: actions/create-release@v1
+            env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            with:
+                tag_name: ${{ needs.checkrelease.outputs.version }}
+                release_name: Release ${{ needs.checkrelease.outputs.version }}
+                body: |
+                    Release ${{ needs.checkrelease.outputs.version }}
+                draft: false
+                prerelease: false
