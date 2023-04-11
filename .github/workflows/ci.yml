@@ -112,6 +112,7 @@ jobs:
             uses: actions/download-artifact@v3
             with:
                 name: package
+                path: package
           - name: Publish to Thunderstore
             uses: GreenTF/upload-thunderstore-package@v3.1
             with:
@@ -120,7 +121,7 @@ jobs:
                 namespace: Pandapip1
                 name: SelectAnyNumber
                 version: ${{ needs.checkrelease.outputs.version }}
-                file: package.zip
+                path: package
           - name: Create Release
             uses: actions/create-release@v1
             env:
