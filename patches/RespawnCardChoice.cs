@@ -38,18 +38,11 @@ namespace SelectAnyNumberRounds.Patch
                         thePickedIndex = i;
                         card.GetComponentInChildren<CardVisuals>().Leave();
                     }
-                    //else
-                    //{
-                    //    card.AddComponent<Rigidbody>().AddForce((card.transform.position - endPos) * Random.Range(0f, 50f));
-                    //    card.GetComponent<Rigidbody>().AddTorque(Random.onUnitSphere * Random.Range(0f, 200f));
-                    //    card.AddComponent<RemoveAfterSeconds>().seconds = Random.Range(0.5f, 1f);
-                    //    card.GetComponent<RemoveAfterSeconds>().shrink = true;
-                    //}
                 }
             }
             yield return new WaitForSeconds(0.25f);
             AnimationCurve softCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-            Transform theIntTransform = __instance.transform.GetChild(theInt); // This used base, but I changed it to __instance. I don't know if that's correct.
+            Transform theIntTransform = __instance.transform.GetChild(theInt);
             Vector3 startPos2 = theIntTransform.transform.position;
             Vector3 endPos2 = startPos;
             c = 0f;
@@ -66,14 +59,6 @@ namespace SelectAnyNumberRounds.Patch
             // Now, remove the card from the list of cards.
             ___spawnedCards.RemoveAt(thePickedIndex);
 
-            // Do NOT clear the list of cards. We need it to be able to pick the cards again.
-            //___spawnedCards.Clear(); 
-            
-            // Not needed since we're not using the continue card.
-            //if (PlayerManager.instance.GetPlayerWithID(pickId).data.view.IsMine)
-            //{
-            //    base.StartCoroutine(this.ReplaceCards(pickedCard, false));
-            //}
             var cardVisuals = pickedCard.GetComponentInChildren<CardVisuals>();
             if (cardVisuals)
             {
@@ -81,6 +66,17 @@ namespace SelectAnyNumberRounds.Patch
             }
 
             // And now that we're done, some housekeeping
+
+            // Remove any destroyed cards from the list of cards
+            ___spawnedCards.RemoveAll(card => !card);
+
+            if (___spawnedCards.Count == 0)
+            {
+                // This should never happen; the continue card should always be there.
+                // In case it does happen, though, we'll throw a more descriptive error than an opaque null reference or index out of range.
+                Plugin.Logger.LogError("No cards left to pick! This should never happen, and is a bug.");
+                throw new System.Exception("No cards left to pick!");
+            }
 
             // Reset the currently selected card to the first card
             typeof(CardChoice).GetField("currentlySelectedCard", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(__instance, 0);
