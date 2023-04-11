@@ -114,7 +114,7 @@ jobs:
             uses: GreenTF/upload-thunderstore-package@v3.1
             with:
                 token: ${{ secrets.THUNDERSTORE_TOKEN }}
-                community: ROUNDS
+                community: rounds
                 namespace: Pandapip1
                 name: SelectAnyNumber
                 version: ${{ needs.checkrelease.outputs.version }}
