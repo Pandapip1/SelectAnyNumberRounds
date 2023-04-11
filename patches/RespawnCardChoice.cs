@@ -83,7 +83,7 @@ namespace SelectAnyNumberRounds.Patch
 
         public static bool Prefix(GameObject pickedCard, int theInt, int pickId, CardChoice __instance, float ___speed, List<GameObject> ___spawnedCards, ref IEnumerator __result)
         {
-            if (!pickedCard || pickedCard.name.Contains("Continue"))
+            if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)")
             {
                 return true;
             }
