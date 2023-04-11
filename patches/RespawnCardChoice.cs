@@ -10,10 +10,30 @@ namespace SelectAnyNumberRounds.Patch
     [HarmonyPatch(typeof(CardChoice), nameof(CardChoice.IDoEndPick))]
     public static class RespawnCardChoice
     {
+        public static Vector3[] childrenPos;
+        public static bool restoreChildrenPos = false;
+
         // Note: this only is run when the continue card is NOT picked.
         public static IEnumerator IDoEndPickPatched(GameObject pickedCard, int theInt, int pickId, CardChoice __instance, float ___speed, List<GameObject> ___spawnedCards)
         {
             Plugin.Logger.LogDebug("IDoEndPickPatched called");
+
+            // Ensure that the positions of the cards are correct
+            if (childrenPos == null)
+            {
+                childrenPos = new Vector3[__instance.transform.childCount];
+                for (int i = 0; i < __instance.transform.childCount; i++)
+                {
+                    childrenPos[i] = __instance.transform.GetChild(i).position;
+                }
+            } else if (restoreChildrenPos)
+            {
+                for (int i = 0; i < __instance.transform.childCount; i++)
+                {
+                    __instance.transform.GetChild(i).position = childrenPos[i];
+                }
+            }
+
             Vector3 startPos = pickedCard.transform.position;
             Vector3 endPos = CardChoiceVisuals.instance.transform.position;
             float c = 0f;
@@ -94,6 +114,7 @@ namespace SelectAnyNumberRounds.Patch
         {
             if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)")
             {
+                restoreChildrenPos = true;
                 return true;
             }
             __result = IDoEndPickPatched(pickedCard, theInt, pickId, __instance, ___speed, ___spawnedCards);
