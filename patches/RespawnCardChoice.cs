@@ -27,21 +27,23 @@ namespace SelectAnyNumberRounds.Patch
                 yield return null;
             }
             GamefeelManager.GameFeel((startPos - endPos).normalized * 2f);
+            var thePickedIndex = -1;
             for (int i = 0; i < ___spawnedCards.Count; i++)
             {
                 var card = ___spawnedCards[i];
                 if (card)
                 {
-                    if (card.gameObject != pickedCard)
+                    if (card.gameObject == pickedCard)
                     {
-                        card.AddComponent<Rigidbody>().AddForce((card.transform.position - endPos) * Random.Range(0f, 50f));
-                        card.GetComponent<Rigidbody>().AddTorque(Random.onUnitSphere * Random.Range(0f, 200f));
-                        card.AddComponent<RemoveAfterSeconds>().seconds = Random.Range(0.5f, 1f);
-                        card.GetComponent<RemoveAfterSeconds>().shrink = true;
+                        thePickedIndex = i;
+                        card.GetComponentInChildren<CardVisuals>().Leave();
                     }
                     //else
                     //{
-                    //    card.GetComponentInChildren<CardVisuals>().Leave();
+                    //    card.AddComponent<Rigidbody>().AddForce((card.transform.position - endPos) * Random.Range(0f, 50f));
+                    //    card.GetComponent<Rigidbody>().AddTorque(Random.onUnitSphere * Random.Range(0f, 200f));
+                    //    card.AddComponent<RemoveAfterSeconds>().seconds = Random.Range(0.5f, 1f);
+                    //    card.GetComponent<RemoveAfterSeconds>().shrink = true;
                     //}
                 }
             }
@@ -62,7 +64,7 @@ namespace SelectAnyNumberRounds.Patch
             theIntTransform.position = startPos;
 
             // Now, remove the card from the list of cards.
-            ___spawnedCards.RemoveAt(theInt);
+            ___spawnedCards.RemoveAt(thePickedIndex);
 
             // Do NOT clear the list of cards. We need it to be able to pick the cards again.
             //___spawnedCards.Clear(); 
@@ -72,24 +74,44 @@ namespace SelectAnyNumberRounds.Patch
             //{
             //    base.StartCoroutine(this.ReplaceCards(pickedCard, false));
             //}
-            pickedCard.GetComponentInChildren<CardVisuals>().Pick(); // The only important line from the original method.
+            var cardVisuals = pickedCard.GetComponentInChildren<CardVisuals>();
+            if (cardVisuals)
+            {
+                cardVisuals.Pick();
+            }
 
             // And now that we're done, some housekeeping
 
             // Reset the currently selected card to the first card
             typeof(CardChoice).GetField("currentlySelectedCard", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(__instance, 0);
-            ___spawnedCards[0].GetComponentInChildren<CardVisuals>().ChangeSelected(true);
-            ___spawnedCards[0].GetComponent<PhotonView>().RPC("RPCA_ChangeSelected", RpcTarget.All, new object[]
+            cardVisuals = ___spawnedCards[0].GetComponentInChildren<CardVisuals>();
+            var photonView = ___spawnedCards[0].GetComponent<PhotonView>();
+            if (cardVisuals)
             {
-				true
-            });
+                cardVisuals.ChangeSelected(true);
+            }
+            if (photonView)
+            {
+                photonView.RPC("RPCA_ChangeSelected", RpcTarget.All, new object[]
+                {
+                    true
+                });
+            }
             for (int j = 1; j < ___spawnedCards.Count; j++)
             {
-                ___spawnedCards[j].GetComponentInChildren<CardVisuals>().ChangeSelected(false);
-                ___spawnedCards[j].GetComponent<PhotonView>().RPC("RPCA_ChangeSelected", RpcTarget.All, new object[]
+                cardVisuals = ___spawnedCards[j].GetComponentInChildren<CardVisuals>();
+                photonView = ___spawnedCards[j].GetComponent<PhotonView>();
+                if (cardVisuals)
                 {
-                    false
-                });
+                    cardVisuals.ChangeSelected(false);
+                }
+                if (photonView)
+                {
+                    photonView.RPC("RPCA_ChangeSelected", RpcTarget.All, new object[]
+                    {
+                        false
+                    });
+                }
             }
             CardChoiceVisuals.instance.GetComponent<PhotonView>().RPC("RPCA_SetCurrentSelected", RpcTarget.All, new object[]
             {
