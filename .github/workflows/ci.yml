@@ -1,5 +1,5 @@
 # Automatically generates an artifact, which is a zip file containing the icon.png, the manifest.json, the LICENSE.md, and the README.md files. The artifact is uploaded to the GitHub Actions artifacts page.
-name: Generate Package
+name: Continuous Integration
 on:
     push:
         branches:
@@ -33,6 +33,7 @@ jobs:
                     exit 1
                 fi
     build:
+        name: Build and Package
         runs-on: ubuntu-latest
         steps:
           - name: Checkout
