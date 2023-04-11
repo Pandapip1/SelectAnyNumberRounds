@@ -20,7 +20,7 @@ jobs:
             uses: ActionsTools/read-json-action@v1.0.5
             with:
                 file_path: manifest.json
-                prop_path: version
+                prop_path: version_number
           - name: Read SelectAnyNumber.csproj Version
             id: csproj
             uses: mavrosxristoforos/get-xml-info@1.1.1
