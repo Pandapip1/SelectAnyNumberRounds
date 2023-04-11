@@ -20,6 +20,7 @@ jobs:
             uses: ActionsTools/read-json-action@v1.0.5
             with:
                 file_path: manifest.json
+                prop_path: version
           - name: Read SelectAnyNumber.csproj Version
             id: csproj
             uses: mavrosxristoforos/get-xml-info@1.1.1
@@ -27,11 +28,15 @@ jobs:
                 xml-file: SelectAnyNumberRounds.csproj
                 xpath: /Project/PropertyGroup/Version
           - name: Validate version
+            if: steps.manifest.outputs.value != steps.csproj.outputs.info
             run: |
-                if [ "${{ steps.manifest.outputs.version }}" != "${{ steps.csproj.outputs.info }}" ]; then
-                    echo "Version mismatch between manifest.json and SelectAnyNumber.csproj"
-                    exit 1
-                fi
+                echo "Version mismatch between manifest.json and SelectAnyNumber.csproj"
+                echo "manifest.json: ${MANIFEST_VERSION}"
+                echo "SelectAnyNumber.csproj: ${CSPROJ_VERSION}"
+                exit 1
+            env:
+                MANIFEST_VERSION: ${{ steps.manifest.outputs.value }}
+                CSPROJ_VERSION: ${{ steps.csproj.outputs.info }}
     build:
         name: Build and Package
         runs-on: ubuntu-latest
