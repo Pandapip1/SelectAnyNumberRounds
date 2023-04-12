@@ -11,7 +11,7 @@ namespace SelectAnyNumberRounds.Patch
     public static class LastCardContinue
     {
         [HarmonyPriority(Priority.Last)] // Run this patch last, as the contune card MUST NOT be overwritten
-        [HarmonyAfter(new string[] { "com.Root.Null" })] // Run this patch after these other Priority.Last patches
+        [HarmonyAfter(new string[] { "com.Root.Null", "com.willuwontu.rounds.cards", "pykess.rounds.plugins.cardchoicespawnuniquecardpatch", "pykess.rounds.plugins.pickphaseshenanigans" })] // Run this patch after these other Priority.Last patches
         public static void Postfix(ref CardChoice __instance, ref GameObject __result, ref List<GameObject> ___spawnedCards, ref Transform[] ___children, ref int ___pickrID, Vector3 pos, Quaternion rot)
         {
             // If this is the last card, set the result to the continue card
