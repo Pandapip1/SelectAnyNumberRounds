@@ -10,10 +10,23 @@ namespace SelectAnyNumberRounds.Patch
     [HarmonyPatch(typeof(CardChoice), nameof(CardChoice.IDoEndPick))]
     public static class RespawnCardChoice
     {
+        public static Vector3[] childrenPos;
+        public static bool restoreChildrenPos = false;
+
         // Note: this only is run when the continue card is NOT picked.
         public static IEnumerator IDoEndPickPatched(GameObject pickedCard, int theInt, int pickId, CardChoice __instance, float ___speed, List<GameObject> ___spawnedCards)
         {
             Plugin.Logger.LogDebug("IDoEndPickPatched called");
+
+            // Ensure that the positions of the cards are correct
+            if (childrenPos == null)
+            {
+                childrenPos = new Vector3[__instance.transform.childCount];
+                for (int i = 0; i < __instance.transform.childCount; i++)
+                {
+                    childrenPos[i] = __instance.transform.GetChild(i).position;
+                }
+            }
 
             Vector3 startPos = pickedCard.transform.position;
             Vector3 endPos = CardChoiceVisuals.instance.transform.position;
@@ -54,13 +67,14 @@ namespace SelectAnyNumberRounds.Patch
             }
             Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 2");
             SoundPlayerStatic.Instance.PlayPlayerBallDisappear();
-            __instance.transform.GetChild(theInt).position = startPos;
-            yield return null;
-
-            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 3");
+            if (theInt >= 0 && theInt < __instance.transform.childCount && __instance.transform.GetChild(theInt))
+            {
+                __instance.transform.GetChild(theInt).position = startPos;
+            }
+            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 2.1");
             for (int i = 0; i < ___spawnedCards.Count; i++)
             {
-                Plugin.Logger.LogDebug($"IDoEndPickPatched: Reached checkpoint 3.1: {i}");
+                Plugin.Logger.LogDebug($"IDoEndPickPatched: Reached checkpoint 2.2: {i}");
                 if (___spawnedCards[i] == pickedCard)
                 {
                     ___spawnedCards[i] = null;
@@ -76,7 +90,7 @@ namespace SelectAnyNumberRounds.Patch
                     }
                 }
             }
-            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 4");
+            Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 3");
 
             // Remove all null entries from the list
             ___spawnedCards.RemoveAll((GameObject x) => x == null);
@@ -94,6 +108,7 @@ namespace SelectAnyNumberRounds.Patch
         {
             if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)")
             {
+                restoreChildrenPos = true;
                 return true;
             }
             __result = IDoEndPickPatched(pickedCard, theInt, pickId, __instance, ___speed, ___spawnedCards);
