@@ -9,6 +9,7 @@ namespace SelectAnyNumberRounds.Patch
     [HarmonyPatch(typeof(CardChoice), nameof(CardChoice.Pick))]
     public static class PickNoRefresh
     {
+        [HarmonyPriority(Priority.Last)] // Run this patch last, as this replaces the original method
         public static bool Prefix(ref CardChoice __instance, GameObject pickedCard, bool clear, ref PickerType ___pickerType, ref List<GameObject> ___spawnedCards)
         {
             // Override the original method with our own
