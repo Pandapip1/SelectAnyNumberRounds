@@ -2,6 +2,7 @@
 using UnboundLib.Cards;
 using UnboundLib;
 using BepInEx.Logging;
+using HarmonyLib;
 
 namespace SelectAnyNumberRounds
 {
@@ -27,7 +28,8 @@ namespace SelectAnyNumberRounds
             });
 
             // Harmony patching: all patches in the same assembly as this class will be applied
-            HarmonyLib.Harmony harmony = HarmonyLib.Harmony.CreateAndPatchAll(typeof(Plugin).Assembly);
+            Harmony harmony = new Harmony(PluginInfo.PLUGIN_GUID);
+            harmony.PatchAll();
         }
 
         internal ManualLogSource GetLogger()
