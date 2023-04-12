@@ -10,8 +10,7 @@ namespace SelectAnyNumberRounds.Patch
         public static Vector3[] cardPositions;
 
         [HarmonyPriority(Priority.First)] // Run this patch first, because if other mods override card positions, we want theirs to be used
-        [HarmonyPrefix]
-        public static void FirstPrefix(CardChoice __instance)
+        public static void Prefix(CardChoice __instance)
         {
             if (cardPositions == null)
             {
@@ -24,15 +23,13 @@ namespace SelectAnyNumberRounds.Patch
                 {
                     if (!(cardPositions[i] == Vector3.zero || cardPositions[i] == null))
                     {
-                        child.position = cardPositions[i];
+                        child.transform.position = cardPositions[i];
                     }
                 }
             }
         }
 
-        [HarmonyPriority(Priority.Last)] // Run this patch last, because if other mods override card positions, we want theirs to be used
-        [HarmonyPrefix]
-        public static void LastPrefix(CardChoice __instance)
+        public static void Postfix(CardChoice __instance)
         {
             for (int i = 0; i < __instance.transform.childCount; i++)
             {
@@ -41,7 +38,7 @@ namespace SelectAnyNumberRounds.Patch
                 {
                     if (cardPositions[i] == Vector3.zero || cardPositions[i] == null)
                     {
-                        cardPositions[i] = child.position;
+                        cardPositions[i] = child.transform.position;
                     }
                 }
             }
