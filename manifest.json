@@ -1,6 +1,6 @@
 {
     "name": "SelectAnyNumber",
-    "version_number": "1.1.4",
+    "version_number": "1.1.5",
     "website_url": "https://pandapip1.com/",
     "description": "Allows you to select any number of cards.",
     "dependencies": [
