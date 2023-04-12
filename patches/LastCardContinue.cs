@@ -8,6 +8,7 @@ namespace SelectAnyNumberRounds.Patch
     [HarmonyPatch(typeof(CardChoice), "GetRanomCard")] // [sic]
     public static class LastCardContinue
     {
+        [HarmonyPriority(Priority.First)] // Run this patch first, as the contune card MUST NOT be overwritten
         public static bool Prefix(ref CardChoice __instance, ref GameObject __result, ref List<GameObject> ___spawnedCards, ref Transform[] ___children)
         {
             // If there is only one card left, return the continue card
