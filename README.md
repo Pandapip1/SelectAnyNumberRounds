@@ -12,7 +12,7 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 
 ### Content Creator
 
-If you are a content creator on YouTube or any other similar and would like to use this mod in your video, you may do so by conspicuously crediting me and linking to the Thunderstore page in the description of your video using the following text:
+If you are a content creator on YouTube or any other similar platform and would like to use this mod in your video, you may do so by conspicuously crediting me and linking to the Thunderstore page in the description of your video using the following text:
 
 > This video uses the mod "Pick Any Number" by Pandapip1, which can be found at https://rounds.thunderstore.io/package/Pandapip1/SelectAnyNumber/
 
