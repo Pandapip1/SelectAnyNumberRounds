@@ -30,13 +30,6 @@ namespace SelectAnyNumberRounds.Patch
                 });
             } else if (PlayerManager.instance.players.Find((Player p) => p.playerID == playerID).data.view.IsMine)
             {
-                if (RespawnCardChoice.restoreChildrenPos)
-                {
-                    for (int i = 0; i < __instance.transform.childCount; i++)
-                    {
-                        __instance.transform.GetChild(i).position = RespawnCardChoice.childrenPos[i];
-                    }
-                }
                 return true; // Let the original method handle this, since we need to actually spawn in cards in the first place
             }
             return false;
