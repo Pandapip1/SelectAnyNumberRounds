@@ -5,6 +5,7 @@
     "description": "Allows you to select any number of cards.",
     "dependencies": [
         "BepInEx-BepInExPack_ROUNDS-5.4.1900",
-        "willis81808-UnboundLib-3.2.10"
+        "willis81808-UnboundLib-3.2.10",
+        "Pykess-Pick_N_Cards-0.2.6"
     ]
 }
