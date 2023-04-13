@@ -20,7 +20,7 @@ Pick Any Number is known to be compatible with the following mods:
 
 [^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
 
-If you have tested this mod with another mod and it is not listed here, please update this table and submit a pull request!
+If you have tested this mod with another mod and it is not listed here, please [update this table](https://github.com/Pandapip1/SelectAnyNumberRounds/edit/main/README.md) and submit a pull request!
 
 ## License
 
