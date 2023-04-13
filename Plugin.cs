@@ -4,11 +4,12 @@ using UnboundLib;
 using BepInEx.Logging;
 using BepInEx.Configuration;
 using HarmonyLib;
-using SettingsUI;
 using UnityEngine.UI;
 using UnboundLib.Utils.UI;
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
+using UnboundLib.Networking;
 
 namespace SelectAnyNumberRounds
 {
@@ -28,6 +29,9 @@ namespace SelectAnyNumberRounds
             // Config
             SettingsUI.RWFSettingsUI.RegisterMenu(PluginInfo.PLUGIN_GUID, NewGUI);
             configPickNumber = Config.Bind(PluginInfo.PLUGIN_GUID, "Picks", 20, "The number of cards you can pick from each hand.");
+
+            // Sync
+            Unbound.RegisterHandshake(PluginInfo.PLUGIN_GUID, this.OnHandShakeCompleted);
 
             // Plugin startup logic
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
@@ -56,6 +60,23 @@ namespace SelectAnyNumberRounds
             MenuHandler.CreateText(PluginInfo.PLUGIN_NAME + " Options", menu, out TextMeshProUGUI _, 60);
             MenuHandler.CreateText(" ", menu, out TextMeshProUGUI _, 30);
             MenuHandler.CreateSlider("Picks", menu, 30, 1f, 20f, 1f, newValue => configPickNumber.Value = (int)newValue, out Slider _, true);
+        }
+        
+        private void OnHandShakeCompleted()
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                UnityEngine.Debug.Log("Sending Handshake RPC");
+                NetworkingManager.RPC(typeof(Plugin), nameof(SyncSettings), new object[] {
+                    configPickNumber.Value
+                });
+            }
+        }
+
+        [UnboundRPC]
+        private static void SyncSettings(int draws)
+        {
+            configPickNumber.Value = draws;
         }
     }
 }
