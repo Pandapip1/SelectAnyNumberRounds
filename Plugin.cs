@@ -19,7 +19,6 @@ namespace SelectAnyNumberRounds
         public static Plugin instance;
         public static new ManualLogSource Logger => Plugin.instance.GetLogger();
 
-        public static ConfigEntry<bool> configUnlimitedPicks;
         public static ConfigEntry<int> configPickNumber;
         
         private void Awake()
@@ -61,7 +60,7 @@ namespace SelectAnyNumberRounds
             MenuHandler.CreateText(" ", menu, out TextMeshProUGUI _, 30);
             MenuHandler.CreateSlider("Picks", menu, 30, 1f, 20f, 1f, newValue => configPickNumber.Value = (int)newValue, out Slider _, true);
         }
-        
+
         private void OnHandShakeCompleted()
         {
             if (PhotonNetwork.IsMasterClient)
