@@ -37,7 +37,6 @@ If you are a content creator on YouTube or any other similar platform and would 
 
 The source code for this mod is licensed under the MIT License. In summary, you are free to use this code in any way you want, as long as you include the license file that credits me. The full license can be found in the [LICENSE.md](LICENSE.md) file.
 
-
 [^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
 
 [^2]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
