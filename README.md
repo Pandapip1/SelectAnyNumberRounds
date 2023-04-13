@@ -20,10 +20,11 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/) | ⚠️ Untested         |
 | [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                    | ⚠️ Untested         |
 | [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                   | ⚠️ Untested         |
-| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                        | 🛑 Incompatible[^2] |
+| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                        | ⚠️ Untested         |
+| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                         | 🛑 Incompatible[^2] |
 
 [^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
-[^2]: Reported by user. Waiting for confirmation and logs.
+[^2]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
 
 If you have tested this mod with another mod and it is not listed here, please [update this table](https://github.com/Pandapip1/SelectAnyNumberRounds/edit/main/README.md) and submit a pull request!
 
