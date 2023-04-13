@@ -1,12 +1,26 @@
 # Pick Any Number: A Rounds Mod by Pandapip1
 
-WARNING: This mod is in beta. There will be bugs. When you find them, please report them on the [issues page](https://github.com/Pandapip1/SelectAnyNumberRounds/issues).
-
 This is a mod for the game [ROUNDS](https://store.steampowered.com/app/1557740/ROUNDS/), made by [Pandapip1](https://github.com/Pandapip1). It overrides the default card selection screen, allowing you to pick any number of cards you want, instead of just one.
+
+**This mod is in beta. There will be bugs. When you find them, please report them on the [issues page](https://github.com/Pandapip1/SelectAnyNumberRounds/issues).**
 
 ## Installation
 
 Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/package/Pandapip1/SelectAnyNumber/).
+
+## Compatibility
+
+Pick Any Number is known to be compatible with the following mods:
+
+| Mod                                                                                     | Compatibility |
+| --------------------------------------------------------------------------------------- | ------------- |
+| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/) | Full          |
+| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)             | Full          |
+| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                   | Partial[^1]   |
+
+[^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
+
+If you have tested this mod with another mod and it is not listed here, please update this table and submit a pull request!
 
 ## License
 
