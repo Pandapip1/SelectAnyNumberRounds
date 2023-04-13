@@ -23,9 +23,6 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                        | ⚠️ Untested         |
 | [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                         | 🛑 Incompatible[^2] |
 
-[^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
-[^2]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
-
 If you have tested this mod with another mod and it is not listed here, please [update this table](https://github.com/Pandapip1/SelectAnyNumberRounds/edit/main/README.md) and submit a pull request!
 
 ## License
@@ -39,3 +36,8 @@ If you are a content creator on YouTube or any other similar platform and would 
 ### Source Code
 
 The source code for this mod is licensed under the MIT License. In summary, you are free to use this code in any way you want, as long as you include the license file that credits me. The full license can be found in the [LICENSE.md](LICENSE.md) file.
+
+
+[^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
+
+[^2]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
