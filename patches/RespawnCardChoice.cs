@@ -10,8 +10,6 @@ namespace SelectAnyNumberRounds.Patch
     [HarmonyPatch(typeof(CardChoice), nameof(CardChoice.IDoEndPick))]
     public static class RespawnCardChoice
     {
-        public static List<int> rawPickIds = new List<int>();
-
         // Note: this only is run when the continue card is NOT picked.
         public static IEnumerator IDoEndPickPatched(GameObject pickedCard, int theInt, int pickId, CardChoice __instance, float ___speed, List<GameObject> ___spawnedCards)
         {
@@ -98,19 +96,8 @@ namespace SelectAnyNumberRounds.Patch
         {
             if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)")
             {
-                rawPickIds.Clear();
                 return true;
             }
-            var rawPickId = pickId;
-            foreach (var id in rawPickIds)
-            {
-                // There was an ID that was lower than the current pickId, so we need to increment the pickId now that card is gone
-                if (id <= pickId)
-                {
-                    rawPickId++;
-                }
-            }
-            rawPickIds.Add(rawPickId);
             __result = IDoEndPickPatched(pickedCard, theInt, pickId, __instance, ___speed, ___spawnedCards);
             return false;
         }
