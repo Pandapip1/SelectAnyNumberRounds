@@ -10,18 +10,19 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 
 ## Compatibility
 
-| Mod                                                                                            | Compatibility        |
-| ---------------------------------------------------------------------------------------------- | -------------------- |
-| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)        | ✅ Full             |
-| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                    | ✅ Full             |
-| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                        | ✅ Full             |
-| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                          | ⚠️ Partial[^1]      |
-| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                    | ⚠️ Untested         |
-| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)       | ⚠️ Untested         |
-| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/) | ⚠️ Untested         |
-| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                    | ⚠️ Untested         |
-| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                   | ⚠️ Untested         |
-| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                         | 🛑 Incompatible[^2] |
+| Mod                                                                                              | Compatibility        |
+| ------------------------------------------------------------------------------------------------ | -------------------- |
+| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)          | ✅ Full             |
+| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                      | ✅ Full             |
+| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                          | ✅ Full             |
+| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/) | ⚠️ Partial[^1]      |
+| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                            | ⚠️ Partial[^2]      |
+| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                      | ⚠️ Untested         |
+| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)         | ⚠️ Untested         |
+| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/)   | ⚠️ Untested         |
+| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                      | ⚠️ Untested         |
+| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                     | ⚠️ Untested         |
+| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                           | 🛑 Incompatible[^3] |
 
 If you have tested this mod with another mod and it is not listed here, please [update this table](https://github.com/Pandapip1/SelectAnyNumberRounds/edit/main/README.md) and submit a pull request!
 
@@ -37,6 +38,8 @@ If you are a content creator on YouTube or any other similar platform and would 
 
 The source code for this mod is licensed under the MIT License. In summary, you are free to use this code in any way you want, as long as you include the license file that credits me. The full license can be found in the [LICENSE.md](LICENSE.md) file.
 
-[^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
+[^1]: Pick any number does not work with the draft gamemode. It will still work with the other gamemodes.
 
-[^2]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
+[^2]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
+
+[^3]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
