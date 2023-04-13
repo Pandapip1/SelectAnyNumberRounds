@@ -111,13 +111,13 @@ namespace SelectAnyNumberRounds.Patch
             {
                 handPicks = Plugin.configPickNumber.Value;
             }
+            handPicks--;
             if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)" || (!Plugin.configUnlimitedPicks.Value && handPicks <= 0))
             {
                 handPicks = -1;
                 return true;
             }
             __result = IDoEndPickPatched(pickedCard, theInt, pickId, __instance, ___speed, ___spawnedCards);
-            handPicks--;
             return false;
         }
     }
