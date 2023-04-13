@@ -3,13 +3,13 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using SoundImplementation;
-using Photon.Pun;
 
 namespace SelectAnyNumberRounds.Patch
 {
     [HarmonyPatch(typeof(CardChoice), nameof(CardChoice.IDoEndPick))]
     public static class RespawnCardChoice
     {
+        public static int handPicks = -1;
         // Note: this only is run when the continue card is NOT picked.
         public static IEnumerator IDoEndPickPatched(GameObject pickedCard, int theInt, int pickId, CardChoice __instance, float ___speed, List<GameObject> ___spawnedCards)
         {
@@ -107,11 +107,17 @@ namespace SelectAnyNumberRounds.Patch
         [HarmonyPriority(Priority.Last)] // Run this patch last
         public static bool Prefix(GameObject pickedCard, int theInt, int pickId, CardChoice __instance, float ___speed, List<GameObject> ___spawnedCards, ref IEnumerator __result)
         {
-            if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)")
+            if (handPicks == -1)
             {
+                handPicks = Plugin.configPickNumber.Value;
+            }
+            if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)" || (!Plugin.configUnlimitedPicks.Value && handPicks <= 0))
+            {
+                handPicks = -1;
                 return true;
             }
             __result = IDoEndPickPatched(pickedCard, theInt, pickId, __instance, ___speed, ___spawnedCards);
+            handPicks--;
             return false;
         }
     }
