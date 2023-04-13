@@ -6,6 +6,7 @@
     "dependencies": [
         "BepInEx-BepInExPack_ROUNDS-5.4.1900",
         "willis81808-UnboundLib-3.2.10",
-        "Pykess-Pick_N_Cards-0.2.6"
+        "Pykess-Pick_N_Cards-0.2.6",
+        "willuwontu-RoundsWithFriendSettingsUI-0.0.1"
     ]
 }

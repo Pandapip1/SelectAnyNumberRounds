@@ -21,8 +21,9 @@ namespace SelectAnyNumberRounds
             instance = this;
 
             // Config
-            configUnlimitedPicks = instance.Config.Bind(PluginInfo.PLUGIN_GUID, "Unlimited Picks", true, "If true, you can pick as many cards as you want from each hand. If false, you can only pick the number of cards specified in the 'Picks' setting.");
-            configPickNumber = instance.Config.Bind(PluginInfo.PLUGIN_GUID, "Picks", 1, "The number of cards you can pick from each hand.");
+            Config.
+            configUnlimitedPicks = Config.Bind(PluginInfo.PLUGIN_GUID, "Unlimited Picks", true, "If true, you can pick as many cards as you want from each hand. If false, you can only pick the number of cards specified in the 'Picks' setting.");
+            configPickNumber = Config.Bind(PluginInfo.PLUGIN_GUID, "Picks", 1, "The number of cards you can pick from each hand.");
 
             // Plugin startup logic
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
