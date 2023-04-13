@@ -19,8 +19,8 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)       | ⚠️ Untested         |
 | [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/) | ⚠️ Untested         |
 | [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                    | ⚠️ Untested         |
-| [BSC](https://rounds.thunderstore.io/package/BossSloth/BSC/)                                   | ⚠️ Untested         |
-| [CR](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                                   | 🛑 Incompatible[^2] |
+| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                   | ⚠️ Untested         |
+| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                        | 🛑 Incompatible[^2] |
 
 [^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
 [^2]: Reported by user. Waiting for confirmation and logs.
