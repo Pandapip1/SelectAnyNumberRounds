@@ -107,6 +107,8 @@ namespace SelectAnyNumberRounds.Patch
         [HarmonyPriority(Priority.Last)] // Run this patch last
         public static bool Prefix(GameObject pickedCard, int theInt, int pickId, CardChoice __instance, float ___speed, List<GameObject> ___spawnedCards, ref IEnumerator __result)
         {
+            Plugin.Logger.LogDebug($"ConfigPickNumber: {Plugin.configPickNumber.Value}");
+            Plugin.Logger.LogDebug($"ConfigUnlimitedPicks: {Plugin.configUnlimitedPicks.Value}");
             if (handPicks == -1)
             {
                 handPicks = Plugin.configPickNumber.Value;
