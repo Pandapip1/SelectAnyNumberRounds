@@ -27,8 +27,7 @@ namespace SelectAnyNumberRounds
 
             // Config
             SettingsUI.RWFSettingsUI.RegisterMenu(PluginInfo.PLUGIN_GUID, NewGUI);
-            configUnlimitedPicks = Config.Bind(PluginInfo.PLUGIN_GUID, "Unlimited Picks", true, "If true, you can pick as many cards as you want from each hand. If false, you can only pick the number of cards specified in the 'Picks' setting.");
-            configPickNumber = Config.Bind(PluginInfo.PLUGIN_GUID, "Picks", 1, "The number of cards you can pick from each hand.");
+            configPickNumber = Config.Bind(PluginInfo.PLUGIN_GUID, "Picks", 20, "The number of cards you can pick from each hand.");
 
             // Plugin startup logic
             Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
@@ -56,7 +55,6 @@ namespace SelectAnyNumberRounds
         {
             MenuHandler.CreateText(PluginInfo.PLUGIN_NAME + " Options", menu, out TextMeshProUGUI _, 60);
             MenuHandler.CreateText(" ", menu, out TextMeshProUGUI _, 30);
-            MenuHandler.CreateToggle(true, "Unlimited Picks", menu, newValue => configUnlimitedPicks.Value = newValue);
             MenuHandler.CreateSlider("Picks", menu, 30, 1f, 20f, 1f, newValue => configPickNumber.Value = (int)newValue, out Slider _, true);
         }
     }
