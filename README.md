@@ -10,11 +10,17 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 
 ## Compatibility
 
-| Mod                                                                                     | Compatibility |
-| --------------------------------------------------------------------------------------- | ------------- |
-| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/) | Full          |
-| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)             | Full          |
-| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                   | Partial[^1]   |
+| Mod                                                                                            | Compatibility  |
+| ---------------------------------------------------------------------------------------------- | -------------- |
+| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)        | ✅ Full        |
+| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                    | ✅ Full        |
+| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                          | ⚠️ Partial[^1] |
+| [CR](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                                   | ⚠️ Untested    |
+| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                    | ⚠️ Untested    |
+| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)       | ⚠️ Untested    |
+| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/) | ⚠️ Untested    |
+| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                    | ⚠️ Untested    |
+| [BSC](https://rounds.thunderstore.io/package/BossSloth/BSC/)                                   | ⚠️ Untested    |
 
 [^1]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
 
