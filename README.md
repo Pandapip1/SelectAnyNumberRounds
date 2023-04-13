@@ -10,8 +10,6 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 
 ## Compatibility
 
-Pick Any Number is known to be compatible with the following mods:
-
 | Mod                                                                                     | Compatibility |
 | --------------------------------------------------------------------------------------- | ------------- |
 | [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/) | Full          |
