@@ -54,7 +54,7 @@ jobs:
           - name: Copy File to Mod Folder
             run: |
                 mkdir -p SelectAnyNumber/BepInEx/plugins
-                cp -r bin/Release/netstandard2.0/PickAnyNumber.dll SelectAnyNumber/BepInEx/plugins
+                cp -r bin/Release/netstandard2.1/PickAnyNumber.dll SelectAnyNumber/BepInEx/plugins
           - name: Upload Artifact
             uses: actions/upload-artifact@v3
             with:
