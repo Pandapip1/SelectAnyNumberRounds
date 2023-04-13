@@ -3,10 +3,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnboundLib;
-using System;
-using static DrawNCards.WorldToScreenExtensions;
-using BepInEx.Configuration;
-using System.Linq;
 
 namespace SelectAnyNumberRounds.Patch
 {
@@ -22,14 +18,9 @@ namespace SelectAnyNumberRounds.Patch
             {
                 GameObject old = __result;
                 Plugin.instance.ExecuteAfterFrames(3, () => PhotonNetwork.Destroy(old));
-                // Pick N cards: get positions, angle, and rotations using reflection
-                var poses = (List<Vector3>)typeof(DrawNCards.DrawNCards).GetMethod("GetPositions", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).Invoke(null, new object[] { ___children.Length, 0f });
-                var rots = (List<Quaternion>)typeof(DrawNCards.DrawNCards).GetMethod("GetRotations", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).Invoke(null, new object[] { ___children.Length });
-                var scale = (Vector3)typeof(DrawNCards.DrawNCards).GetMethod("GetScale", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static).Invoke(null, new object[] { ___children.Length });
-                var pos = poses[poses.Count - 1];
-                var rot = rots[rots.Count - 1];
-                // Spawn the continue card
-                __result = PhotonNetwork.Instantiate("__SAN__Continue", pos, rot, 0, new object[] { scale, __result.GetComponent<CardInfo>().sourceCard.name, ___pickrID });
+                // Spawn the continue card using reflection
+                Plugin.Logger.LogDebug("Spawning continue card");
+                __result = (GameObject)typeof(CardChoice).GetMethod("Spawn", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, new object[] { Cards.ContinueCard.cardInfoInstance.gameObject, __result.transform.position, __result.transform.rotation });
                 __result.GetComponent<CardInfo>().sourceCard = Cards.ContinueCard.cardInfoInstance;
                 __result.GetComponentInChildren<DamagableEvent>().GetComponent<Collider2D>().enabled = false;
             }
