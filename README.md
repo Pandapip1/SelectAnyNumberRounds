@@ -10,22 +10,45 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 
 ## Compatibility
 
-| Mod                                                                                                    | Compatibility                       |
-| ------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)                | ✅ Full (Dependency)                |
-| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                            | ✅ Full (Dependency)                |
-| [Lobby Improvements](https://rounds.thunderstore.io/package/RoundsModdingCommunity/LobbyImprovements/) | ✅ Full                             |
-| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                                | ✅ Full                             |
-| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/)       | ✅ Full* [^1]                       |
-| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                                  | ⚠️ Partial [^2]                     |
-| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                                  | ⚠️ Partial [^3]                     |
-| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                                 | 🛑 Incompatible [^4]                |
-| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                            | ❓ Untested                         |
-| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)               | ❓ Untested                         |
-| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/)         | ❓ Untested                         |
-| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                            | ❓ Untested                         |
-| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                           | ❓ Untested                         |
-| [Arcana](https://rounds.thunderstore.io/package/willis81808/Arcana/)                                   | ❓ Untested                         |
+| Mod                                                                                                                        | Compatibility        |
+| -------------------------------------------------------------------------------------------------------------------------  | -------------------- |
+| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)                                    | ✅ Full              |
+| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                                                | ✅ Full              |
+| [Lobby Improvements](https://rounds.thunderstore.io/package/RoundsModdingCommunity/LobbyImprovements/)                     | ✅ Full              |
+| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                                                    | ✅ Full              |
+| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)                                   | ✅ Full              |
+| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/)                             | ✅ Full              |
+| [Arcana](https://rounds.thunderstore.io/package/willis81808/Arcana/)                                                       | ✅ Full              |
+| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/)                           | ✅ Full* [^1]        |
+| [RespawnPatch](https://rounds.thunderstore.io/package/willuwontu/RespawnPatch)                                             | ✅ Full              |
+| [LegRaycastersPatch](https://rounds.thunderstore.io/package/Pykess/LegRaycastersPatch)                                     | ✅ Full              |
+| [PlayerJumpPatch](https://rounds.thunderstore.io/package/Pykess/PlayerJumpPatch)                                           | ✅ Full              |
+| [CardChoiceSpawnUniqueCardPatch](https://rounds.thunderstore.io/package/Pykess/CardChoiceSpawnUniqueCardPatch)             | ✅ Full              |
+| [ResetAttackCooldownPatch](https://rounds.thunderstore.io/package/Senyksia/ResetAttackCooldownPatch)                       | ✅ Full              |
+| [DemonicPactPatch](https://rounds.thunderstore.io/package/Pykess/DemonicPactPatch)                                         | ✅ Full              |
+| [GrowPatch](https://rounds.thunderstore.io/package/RoundsModding/Grow_Patch)                                               | ✅ Full              |
+| [RegenerationPatch](https://rounds.thunderstore.io/package/Root/RegenerationPatch)                                         | ✅ Full              |
+| [GravityPatch](https://rounds.thunderstore.io/package/Root/GravityPatch)                                                   | ✅ Full              |
+| [ProjectilesToSpawnNumberOfSpawnsPatch](https://rounds.thunderstore.io/package/Root/ProjectilesToSpawnNumberOfSpawnsPatch) | ✅ Full              |
+| [GunBodyRecoilPatch](https://rounds.thunderstore.io/package/Root/GunBodyRecoilPatch)                                       | ✅ Full              |
+| [RayHitReflectPatch](https://rounds.thunderstore.io/package/Root/RayHitReflectPatch)                                       | ✅ Full              |
+| [EvenSpreadPatch](https://rounds.thunderstore.io/package/willuwontu/EvenSpreadPatch/)                                      | ✅ Full              |
+| [GunChargePatch](https://rounds.thunderstore.io/package/Root/GunChargePatch)                                               | ✅ Full              |
+| [GunProjectileSizePatch](https://rounds.thunderstore.io/package/Root/GunProjectileSizePatch)                               | ✅ Full              |
+| [ZeroGBulletPatch](https://rounds.thunderstore.io/package/Root/ZeroGBulletPatch)                                           | ✅ Full              |
+| [CardBarPatch](https://rounds.thunderstore.io/package/BossSloth/CardBarPatch)                                              | ✅ Full              |
+| [TemporaryStatsPatch](https://rounds.thunderstore.io/package/Pykess/TemporaryStatsPatch)                                   | ✅ Full              |
+| [TeleportPatch](https://rounds.thunderstore.io/package/Pykess/TeleportPatch)                                               | ✅ Full              |
+| [GunUnblockablePatch](https://rounds.thunderstore.io/package/Pykess/GunUnblockablePatch)                                   | ✅ Full              |
+| [StopShootingYoureDead](https://rounds.thunderstore.io/package/willuwontu/StopShootingYoureDead)                           | ✅ Full              |
+| [BlockForcePatch](https://rounds.thunderstore.io/package/willuwontu/BlockForcePatch)                                       | ✅ Full              |
+| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                                                      | ⚠️ Partial [^2]      |
+| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                                                      | ⚠️ Partial [^3]      |
+| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                                                     | 🛑 Incompatible [^4] |
+| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                                                | ❓ Untested          |
+| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                                                | ❓ Untested          |
+| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                                               | ❓ Untested          |
+| 
 
 | Icon | Meaning                                                                                   |
 | ---- | ----------------------------------------------------------------------------------------- |
