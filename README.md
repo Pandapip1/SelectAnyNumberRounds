@@ -16,7 +16,7 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                      | ✅ Full                             |
 | [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                          | ✅ Full                             |
 | [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                            | ⚠️ Partial (Untested Fix) [^1]      |
-| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/) | ⚠️ Partial [^2]                     |
+| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/) | ⚠️ Partial (Untested Fix) [^2]      |
 | [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                            | 🛑 Incompatible (Untested Fix) [^3] |
 | [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                           | 🛑 Incompatible [^4]                |
 | [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                      | ❓ Untested                         |
@@ -41,7 +41,7 @@ The source code for this mod is licensed under the MIT License. In summary, you 
 
 [^1]: Due to an unusual interaction, picking "Distill Acquisition" results in a softlock. Potentially fixed by [2cba542cfa00e7315f3c567e48a4c49c582689a7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/2cba542cfa00e7315f3c567e48a4c49c582689a7)
 
-[^2]: Pick any number does not work with the draft gamemode. It will still work with the other gamemodes.
+[^2]: Pick any number does not work with the draft gamemode. It will still work with the other gamemodes. Potentially fixed by [c09175831be3a26de30fd0f10a272c37d40f4df6](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/c09175831be3a26de30fd0f10a272c37d40f4df6)
 
 [^3]: When the timer runs out, you pick a random card, and the timer goes away. However, if it was not the continue card, you can continue picking cards. Potentially fixed by [86d879f4aa6de4de43633c0db9e8109bf63e1fa7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/86d879f4aa6de4de43633c0db9e8109bf63e1fa7)
 
