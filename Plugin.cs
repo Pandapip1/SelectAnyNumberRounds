@@ -35,6 +35,7 @@ namespace SelectAnyNumberRounds
             // Config
             SettingsUI.RWFSettingsUI.RegisterMenu(PluginInfo.PLUGIN_GUID, NewGUI);
             configPickNumber = Config.Bind(PluginInfo.PLUGIN_GUID, "Picks", 20, "The number of cards you can pick from each hand.");
+            enableContinueCard = Config.Bind(PluginInfo.PLUGIN_GUID, "Enable Continue Card", true, "Whether or not to enable the continue card.");
 
             // Sync
             Unbound.RegisterHandshake(PluginInfo.PLUGIN_GUID, this.OnHandShakeCompleted);
