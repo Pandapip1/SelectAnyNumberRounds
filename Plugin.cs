@@ -21,6 +21,7 @@ namespace SelectAnyNumberRounds
         public static new ManualLogSource Logger => Plugin.instance.GetLogger();
 
         public static ConfigEntry<int> configPickNumber;
+        public static ConfigEntry<bool> enableContinueCard;
         
         private void Awake()
         {
@@ -47,7 +48,7 @@ namespace SelectAnyNumberRounds
 
             // Harmony patching: all patches in the same assembly as this class will be applied
             Harmony harmony = new Harmony(PluginInfo.PLUGIN_GUID);
-            harmony.PatchAll(typeof(Patch.AutoLoadPatch));
+            harmony.PatchAll();
         }
 
         internal ManualLogSource GetLogger()
@@ -60,6 +61,7 @@ namespace SelectAnyNumberRounds
             MenuHandler.CreateText(PluginInfo.PLUGIN_NAME + " Options", menu, out TextMeshProUGUI _, 60);
             MenuHandler.CreateText(" ", menu, out TextMeshProUGUI _, 30);
             MenuHandler.CreateSlider("Picks", menu, 30, 1f, 20f, 1f, newValue => configPickNumber.Value = (int)newValue, out Slider _, true);
+            MenuHandler.CreateToggle(enableContinueCard.Value, "Enable Continue Card", menu, newValue => enableContinueCard.Value = newValue);
         }
 
         private void OnHandShakeCompleted()
@@ -68,15 +70,17 @@ namespace SelectAnyNumberRounds
             {
                 UnityEngine.Debug.Log("Sending Handshake RPC");
                 NetworkingManager.RPC(typeof(Plugin), nameof(SyncSettings), new object[] {
-                    configPickNumber.Value
+                    configPickNumber.Value,
+                    enableContinueCard.Value
                 });
             }
         }
 
         [UnboundRPC]
-        private static void SyncSettings(int draws)
+        private static void SyncSettings(int draws, bool enableContinue)
         {
             configPickNumber.Value = draws;
+            enableContinueCard.Value = enableContinue;
         }
     }
 }

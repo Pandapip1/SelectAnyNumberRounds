@@ -84,17 +84,6 @@ namespace SelectAnyNumberRounds.Patch
 
             Plugin.Logger.LogDebug("IDoEndPickPatched: Reached checkpoint 5");
 
-            // If spawned cards is empty, then we have picked all the cards, and should add a continue card
-            // This shouldn't be necessary, but if it happens, then we should avoid a softlock
-            if (___spawnedCards.Count == 0)
-            {
-                var pos = new Vector3(0.5f, 0.5f, -5f);
-                var rot = Quaternion.Euler(0f, 0f, 0f);
-                var card = (GameObject)typeof(CardChoice).GetMethod("Spawn", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).Invoke(__instance, new object[] { Cards.ContinueCard.cardInfoInstance.gameObject, pos, rot });
-                card.GetComponent<CardInfo>().sourceCard = Cards.ContinueCard.cardInfoInstance;
-                card.GetComponentInChildren<DamagableEvent>().GetComponent<Collider2D>().enabled = false;
-            }
-
             // Ensure IsPicking is set to true
             __instance.IsPicking = true;
 
@@ -113,7 +102,7 @@ namespace SelectAnyNumberRounds.Patch
                 handPicks = Plugin.configPickNumber.Value;
             }
             handPicks--;
-            if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)" || handPicks <= 0)
+            if (!pickedCard || pickedCard.name == "__SAN__Continue(Clone)" || handPicks <= 0 || ___spawnedCards.Count <= 1)
             {
                 handPicks = -1;
                 return true;

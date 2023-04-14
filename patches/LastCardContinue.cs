@@ -14,7 +14,7 @@ namespace SelectAnyNumberRounds.Patch
         public static void Postfix(ref CardChoice __instance, ref GameObject __result, ref List<GameObject> ___spawnedCards, ref Transform[] ___children, ref int ___pickrID)
         {
             // If this is the last card, set the result to the continue card
-            if (___spawnedCards.Count == ___children.Length - 1) // It's not yet added to the list, so we need to subtract 1
+            if (___spawnedCards.Count == ___children.Length - 1 && Plugin.enableContinueCard.Value) // It's not yet added to the list, so we need to subtract 1
             {
                 GameObject old = __result;
                 Plugin.instance.ExecuteAfterFrames(3, () => PhotonNetwork.Destroy(old));
