@@ -17,7 +17,7 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Lobby Improvements](https://rounds.thunderstore.io/package/RoundsModdingCommunity/LobbyImprovements/) | ✅ Full                             |
 | [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                                | ✅ Full                             |
 | [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/)       | ✅ Full* [^1]                       |
-| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                                  | ⚠️ Untested Fix [^2]                |
+| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                                  | ⚠️ Partial [^2]                     |
 | [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                                  | ⚠️ Partial [^3]                     |
 | [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                                 | 🛑 Incompatible [^4]                |
 | [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                            | ❓ Untested                         |
@@ -49,7 +49,7 @@ The source code for this mod is licensed under the MIT License. In summary, you 
 
 [^1]: Pick Any Number is disabled when Draft mode is enabled. It is automatically re-enabled when Draft mode is disabled.
 
-[^2]: Due to an unusual interaction, picking "Distill Acquisition" results in a softlock. Potentially fixed by [2cba542cfa00e7315f3c567e48a4c49c582689a7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/2cba542cfa00e7315f3c567e48a4c49c582689a7)
+[^2]: Due to an unusual interaction, picking "Distill Acquisition" or "Reroll" results in a softlock. Picking nulled cards also spawns in a card object on the map. We recommend disabling those cards when using this mod.
 
 [^3]: When you pick a card, the timer disappears. However, if the timer runs out, the next player will be able to pick a card, as expected.
 
