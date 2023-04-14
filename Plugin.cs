@@ -47,7 +47,7 @@ namespace SelectAnyNumberRounds
 
             // Harmony patching: all patches in the same assembly as this class will be applied
             Harmony harmony = new Harmony(PluginInfo.PLUGIN_GUID);
-            harmony.PatchAll();
+            harmony.PatchAll(typeof(Patch.AutoLoadPatch));
         }
 
         internal ManualLogSource GetLogger()
