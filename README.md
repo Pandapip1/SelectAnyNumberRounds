@@ -41,8 +41,8 @@ The source code for this mod is licensed under the MIT License. In summary, you 
 
 [^1]: Pick any number does not work with the draft gamemode. It will still work with the other gamemodes.
 
-[^2]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
+[^2]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock. Potentially fixed by X.
 
 [^3]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
 
-[^4]: When the timer runs out, you pick a ranom card and the timer goes away. However, if it was not the continue card, you can continue picking cards.
+[^4]: When the timer runs out, you pick a random card and the timer goes away. However, if it was not the continue card, you can continue picking cards. Potentially fixed by X.
