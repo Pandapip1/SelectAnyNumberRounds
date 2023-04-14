@@ -16,9 +16,9 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                            | ✅ Full (Dependency)                |
 | [Lobby Improvements](https://rounds.thunderstore.io/package/RoundsModdingCommunity/LobbyImprovements/) | ✅ Full                             |
 | [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                                | ✅ Full                             |
-| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/)       | ✅ Full* [^1]                        |
+| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/)       | ✅ Full* [^1]                       |
 | [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                                  | ⚠️ Untested Fix [^2]                |
-| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                                  | 🛑 Untested Fix [^3]                |
+| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                                  | ⚠️ Partial [^3]                     |
 | [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                                 | 🛑 Incompatible [^4]                |
 | [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                            | ❓ Untested                         |
 | [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)               | ❓ Untested                         |
@@ -51,6 +51,6 @@ The source code for this mod is licensed under the MIT License. In summary, you 
 
 [^2]: Due to an unusual interaction, picking "Distill Acquisition" results in a softlock. Potentially fixed by [2cba542cfa00e7315f3c567e48a4c49c582689a7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/2cba542cfa00e7315f3c567e48a4c49c582689a7)
 
-[^3]: When the timer runs out, you pick a random card, and the timer goes away. However, if it was not the continue card, you can continue picking cards. Potentially fixed by [86d879f4aa6de4de43633c0db9e8109bf63e1fa7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/86d879f4aa6de4de43633c0db9e8109bf63e1fa7)
+[^3]: When you pick a card, the timer disappears. However, if the timer runs out, the next player will be able to pick a card, as expected.
 
 [^4]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
