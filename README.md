@@ -10,20 +10,21 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 
 ## Compatibility
 
-| Mod                                                                                              | Compatibility                       |
-| ------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)          | ✅ Full                             |
-| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                      | ✅ Full                             |
-| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                          | ✅ Full                             |
-| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                            | ⚠️ Partial (Untested Fix) [^1]      |
-| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/) | ⚠️ Partial (Untested Fix) [^2]      |
-| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                            | 🛑 Incompatible (Untested Fix) [^3] |
-| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                           | 🛑 Incompatible [^4]                |
-| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                      | ❓ Untested                         |
-| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)         | ❓ Untested                         |
-| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/)   | ❓ Untested                         |
-| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                      | ❓ Untested                         |
-| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                     | ❓ Untested                         |
+| Mod                                                                                                    | Compatibility                       |
+| ------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)                | ✅ Full (Dependency)                |
+| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                            | ✅ Full (Dependency)                |
+| [Lobby Improvements](https://rounds.thunderstore.io/package/RoundsModdingCommunity/LobbyImprovements/) | ✅ Full                             |
+| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                                | ✅ Full                             |
+| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                                  | ⚠️ Partial (Untested Fix) [^1]      |
+| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/)       | ⚠️ Partial (Untested Fix) [^2]      |
+| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                                  | 🛑 Incompatible (Untested Fix) [^3] |
+| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                                 | 🛑 Incompatible [^4]                |
+| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                            | ❓ Untested                         |
+| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)               | ❓ Untested                         |
+| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/)         | ❓ Untested                         |
+| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                            | ❓ Untested                         |
+| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                           | ❓ Untested                         |
 
 If you have tested this mod with another mod and it is not listed here, please [update this table](https://github.com/Pandapip1/SelectAnyNumberRounds/edit/main/README.md) and submit a pull request!
 
