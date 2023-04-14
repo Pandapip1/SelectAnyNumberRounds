@@ -13,9 +13,10 @@ using UnboundLib.Networking;
 
 namespace SelectAnyNumberRounds
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin(pluginId, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     public class Plugin : BaseUnityPlugin
     {
+        public const string pluginId = "com.pandapip1.rounds.selectanynumberrounds";
         public static Plugin instance;
         public static new ManualLogSource Logger => Plugin.instance.GetLogger();
 
