@@ -10,20 +10,20 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 
 ## Compatibility
 
-| Mod                                                                                              | Compatibility        |
-| ------------------------------------------------------------------------------------------------ | -------------------- |
-| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)          | ✅ Full             |
-| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                      | ✅ Full             |
-| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                          | ✅ Full             |
-| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/) | ⚠️ Partial[^1]      |
-| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                            | ⚠️ Untested Fix[^2] |
-| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                            | ⚠️ Untested Fix[^3] |
-| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                      | ⚠️ Untested         |
-| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)         | ⚠️ Untested         |
-| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/)   | ⚠️ Untested         |
-| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                      | ⚠️ Untested         |
-| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                     | ⚠️ Untested         |
-| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                           | 🛑 Incompatible[^4] |
+| Mod                                                                                              | Compatibility                       |
+| ------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| [Rounds With Friends](https://rounds.thunderstore.io/package/olavim/RoundsWithFriends/)          | ✅ Full                             |
+| [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                      | ✅ Full                             |
+| [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                          | ✅ Full                             |
+| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                            | ⚠️ Partial (Untested Fix) [^1]      |
+| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/) | ⚠️ Partial [^2]                     |
+| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                            | 🛑 Incompatible (Untested Fix) [^3] |
+| [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                           | 🛑 Incompatible [^4]                |
+| [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                      | ❓ Untested                         |
+| [Will's Wacky Cards](https://rounds.thunderstore.io/package/willuwontu/WillsWackyCards/)         | ❓ Untested                         |
+| [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/)   | ❓ Untested                         |
+| [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                      | ❓ Untested                         |
+| [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                     | ❓ Untested                         |
 
 If you have tested this mod with another mod and it is not listed here, please [update this table](https://github.com/Pandapip1/SelectAnyNumberRounds/edit/main/README.md) and submit a pull request!
 
@@ -39,9 +39,9 @@ If you are a content creator on YouTube or any other similar platform and would 
 
 The source code for this mod is licensed under the MIT License. In summary, you are free to use this code in any way you want, as long as you include the license file that credits me. The full license can be found in the [LICENSE.md](LICENSE.md) file.
 
-[^1]: Pick any number does not work with the draft gamemode. It will still work with the other gamemodes.
+[^1]: Due to an unusual interaction, picking "Distill Acquisition" results in a softlock. Potentially fixed by [2cba542cfa00e7315f3c567e48a4c49c582689a7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/2cba542cfa00e7315f3c567e48a4c49c582689a7)
 
-[^2]: Due to an unusual interaction, picking "Distill Acquisition" results in a softlock. Potentially fixed by [2cba542cfa00e7315f3c567e48a4c49c582689a7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/2cba542cfa00e7315f3c567e48a4c49c582689a7)
+[^2]: Pick any number does not work with the draft gamemode. It will still work with the other gamemodes.
 
 [^3]: When the timer runs out, you pick a random card, and the timer goes away. However, if it was not the continue card, you can continue picking cards. Potentially fixed by [86d879f4aa6de4de43633c0db9e8109bf63e1fa7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/86d879f4aa6de4de43633c0db9e8109bf63e1fa7)
 
