@@ -48,7 +48,6 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                                                | ❓ Untested          |
 | [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                                                | ❓ Untested          |
 | [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                                               | ❓ Untested          |
-| 
 
 | Icon | Meaning                                                                                   |
 | ---- | ----------------------------------------------------------------------------------------- |
