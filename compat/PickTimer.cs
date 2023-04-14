@@ -7,6 +7,7 @@ namespace SelectAnyNumberRounds.Compat
     [BepInDependency(Plugin.pluginId)]
     [BepInDependency("ot.dan.rounds.picktimer")]
     [BepInPlugin("com.pandapip1.rounds.selectanynumberrounds.compat.picktimercompat", "Select Any Number Rounds - Pick Timer Compatibility", PluginInfo.PLUGIN_VERSION)]
+    [BepInProcess("Rounds.exe")]
     public class PickTimerCompat : BaseUnityPlugin
     {
         public virtual void Start()

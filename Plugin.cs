@@ -13,7 +13,12 @@ using UnboundLib.Networking;
 
 namespace SelectAnyNumberRounds
 {
+    [BepInDependency("com.willis.rounds.unbound")]
+    [BepInDependency("io.olavim.rounds.rwf")]
+    [BepInDependency("com.willuwontu.rounds.rwfsettingsui")]
+    [BepInDependency("pykess.rounds.plugins.pickncards")]
     [BepInPlugin(pluginId, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInProcess("Rounds.exe")]
     public class Plugin : BaseUnityPlugin
     {
         public const string pluginId = "com.pandapip1.rounds.selectanynumberrounds";

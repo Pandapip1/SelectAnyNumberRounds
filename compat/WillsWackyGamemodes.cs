@@ -7,6 +7,7 @@ namespace SelectAnyNumberRounds.Compat
     [BepInDependency(Plugin.pluginId)]
     [BepInDependency("com.willuwontu.rounds.gamemodes")]
     [BepInPlugin("com.pandapip1.rounds.selectanynumberrounds.compat.willswackygmcompat", "Select Any Number Rounds - Will's Wacky Gamemodes Compatibility", PluginInfo.PLUGIN_VERSION)]
+    [BepInProcess("Rounds.exe")]
     public class WillsWackyGMCompat : BaseUnityPlugin
     {
         public static bool oldIsDraft = false;
