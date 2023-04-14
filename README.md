@@ -23,6 +23,7 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                      | ⚠️ Untested         |
 | [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                     | ⚠️ Untested         |
 | [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                           | 🛑 Incompatible[^3] |
+| [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                            | 🛑 Incompatible[^4] |
 
 If you have tested this mod with another mod and it is not listed here, please [update this table](https://github.com/Pandapip1/SelectAnyNumberRounds/edit/main/README.md) and submit a pull request!
 
@@ -43,3 +44,5 @@ The source code for this mod is licensed under the MIT License. In summary, you 
 [^2]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock.
 
 [^3]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
+
+[^4]: When the timer runs out, you pick a ranom card and the timer goes away. However, if it was not the continue card, you can continue picking cards.
