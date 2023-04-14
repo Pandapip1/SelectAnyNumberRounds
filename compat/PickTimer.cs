@@ -19,32 +19,10 @@ namespace SelectAnyNumberRounds.Compat
 
     public class FakeRNG : System.Random
     {
-        public override int Next()
-        {
-            return CardChoice.instance.transform.childCount - 1;
-        }
-
-        public override int Next(int maxValue)
-        {
-            return CardChoice.instance.transform.childCount - 1;
-        }
-
         public override int Next(int minValue, int maxValue)
         {
-            return CardChoice.instance.transform.childCount - 1;
-        }
-
-        public override double NextDouble()
-        {
-            return CardChoice.instance.transform.childCount - 1;
-        }
-
-        public override void NextBytes(byte[] buffer)
-        {
-            for (int i = 0; i < buffer.Length; i++)
-            {
-                buffer[i] = (byte)(CardChoice.instance.transform.childCount - 1);
-            }
+            Patch.RespawnCardChoice.handPicks = 1; // Set the number of picks to 1
+            return base.Next(minValue, maxValue);
         }
     }
 }
