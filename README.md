@@ -27,6 +27,7 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                           | ❓ Untested                         |
 
 | Icon | Meaning                                                                                   |
+| ---- | ----------------------------------------------------------------------------------------- |
 | ✅   | There are no known issues with this mod.                                                  |
 | ⚠️   | There are known issues with this mod, but they can be mitigated or are not game-breaking. |
 | 🛑   | There are game-breaking issues with this mod that cannot be mitigated.                    |
