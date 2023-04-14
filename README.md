@@ -41,7 +41,7 @@ The source code for this mod is licensed under the MIT License. In summary, you 
 
 [^1]: Pick any number does not work with the draft gamemode. It will still work with the other gamemodes.
 
-[^2]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock. Potentially fixed by X.
+[^2]: Due to an unusual interaction, picking "Distill Acquisition" currently results in a softlock. Potentially fixed by 2cba542cfa00e7315f3c567e48a4c49c582689a7
 
 [^3]: Reported by user. Tries to create and display endless "BU" cards once continue is picked: ![Provided screenshot](https://media.discordapp.net/attachments/1095772439172091935/1096163350527881226/image.png)
 
