@@ -31,5 +31,15 @@ namespace SelectAnyNumberRounds.Compat
             }
             oldIsDraft = GameModeManager.CurrentHandlerID == "Draft";
         }
+
+        // Before game quits, reset the config values
+        public virtual void OnApplicationQuit()
+        {
+            if (oldIsDraft)
+            {
+                Plugin.configPickNumber.Value = oldConfigPickNumber;
+                Plugin.enableContinueCard.Value = oldEnableContinueCard;
+            }
+        }
     }
 }
