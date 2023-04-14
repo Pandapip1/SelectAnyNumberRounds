@@ -25,6 +25,7 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Chaos Poppycars Cards](https://rounds.thunderstore.io/package/poppycars/ChaosPoppycarsCards/)         | ❓ Untested                         |
 | [Gear Up Cards](https://rounds.thunderstore.io/package/GearUP/GearUpCards/)                            | ❓ Untested                         |
 | [Boss Sloths's Cards](https://rounds.thunderstore.io/package/BossSloth/BSC/)                           | ❓ Untested                         |
+| [Arcana](https://rounds.thunderstore.io/package/willis81808/Arcana/)                                   | ❓ Untested                         |
 
 | Icon | Meaning                                                                                   |
 | ---- | ----------------------------------------------------------------------------------------- |
