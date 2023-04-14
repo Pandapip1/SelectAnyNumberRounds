@@ -16,8 +16,8 @@ Pick Any Number is available on [Thunderstore](https://rounds.thunderstore.io/pa
 | [Pick N Cards](https://rounds.thunderstore.io/package/Pykess/Pick_N_Cards/)                            | ✅ Full (Dependency)                |
 | [Lobby Improvements](https://rounds.thunderstore.io/package/RoundsModdingCommunity/LobbyImprovements/) | ✅ Full                             |
 | [Cosmic Rounds](https://rounds.thunderstore.io/package/XAngelMoonX/CR/)                                | ✅ Full                             |
-| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                                  | ⚠️ Untested Fix [^1]                |
-| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/)       | ⚠️ Untested Fix [^2]                |
+| [Will's Wacky Gamemodes](https://rounds.thunderstore.io/package/willuwontu/WillsWackyGameModes/)       | ✅ Full* [^1]                        |
+| [Root Cards](https://rounds.thunderstore.io/package/Root/Root_Cards/)                                  | ⚠️ Untested Fix [^2]                |
 | [Pick Timer](https://rounds.thunderstore.io/package/otDan/PickTimer/)                                  | 🛑 Untested Fix [^3]                |
 | [Tab Info](https://rounds.thunderstore.io/package/willuwontu/TabInfo/)                                 | 🛑 Incompatible [^4]                |
 | [Cards Plus](https://rounds.thunderstore.io/package/willis81808/CardsPlus/)                            | ❓ Untested                         |
@@ -47,9 +47,9 @@ If you are a content creator on YouTube or any other similar platform and would 
 
 The source code for this mod is licensed under the MIT License. In summary, you are free to use this code in any way you want, as long as you include the license file that credits me. The full license can be found in the [LICENSE.md](LICENSE.md) file.
 
-[^1]: Due to an unusual interaction, picking "Distill Acquisition" results in a softlock. Potentially fixed by [2cba542cfa00e7315f3c567e48a4c49c582689a7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/2cba542cfa00e7315f3c567e48a4c49c582689a7)
+[^1]: Pick Any Number is disabled when Draft mode is enabled. It is automatically re-enabled when Draft mode is disabled.
 
-[^2]: Pick any number does not work with the draft gamemode. It will still work with the other gamemodes. Potentially fixed by [c09175831be3a26de30fd0f10a272c37d40f4df6](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/c09175831be3a26de30fd0f10a272c37d40f4df6)
+[^2]: Due to an unusual interaction, picking "Distill Acquisition" results in a softlock. Potentially fixed by [2cba542cfa00e7315f3c567e48a4c49c582689a7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/2cba542cfa00e7315f3c567e48a4c49c582689a7)
 
 [^3]: When the timer runs out, you pick a random card, and the timer goes away. However, if it was not the continue card, you can continue picking cards. Potentially fixed by [86d879f4aa6de4de43633c0db9e8109bf63e1fa7](https://github.com/Pandapip1/SelectAnyNumberRounds/commit/86d879f4aa6de4de43633c0db9e8109bf63e1fa7)
 
